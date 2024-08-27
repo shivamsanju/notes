@@ -92,6 +92,9 @@ graph LR
 > 💡 For short-running programs, the client compiler is preferable as it provides faster startup times. While we can use the `--client` flag to exclusively use the client compiler, this is rarely necessary since the JVM is sophisticated enough to make this decision on its own.
 
 
+### 32bit vs 64bit Java Virtual Machine
+
+
 |                                                                **32bit JVM** |                                                                **64bit JVM** |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Has only client compiler                                                     | Has both client and server compiler                                          |
@@ -152,3 +155,6 @@ graph TD
 - Static objects are created in heap, but their reference is stores in meta space.
 - Since static objects are never out of scope, there is no garbage collection for the objects referenced from meta space.
 - All the threads and classes have access to meta space so static variables / methods can be accessed from anywhere.
+
+# 🚀 Garbage collection
+

@@ -19,4 +19,3 @@
 | [State Pattern](./State_Pattern/README.md) |
 | [Mediator Pattern](./Mediator_Pattern/README.md) |
 | [Chain of Responsibility Pattern](./Chain_of_Responsibility_Pattern/README.md) |
-| [Untitled](./Untitled/README.md) |
