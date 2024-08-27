@@ -42,7 +42,7 @@ jobs:
         });
 
         const sanitizeFilename = (name) => {
-            return name.replace(/[<>:"/\\|?*]+/g, "").replace(/\s+/g, '_').trim();
+            return name.replace(/[<>:"/\\|?*]+/g, "").replace(/\s+/g, "_").trim();
         };
 
         const getTopLevelPages = async (cursor) => {
