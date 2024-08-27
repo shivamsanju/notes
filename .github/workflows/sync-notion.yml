@@ -129,7 +129,7 @@ jobs:
                     const title = page.properties.title
                         ? page.properties.title.title[0].plain_text
                         : "Untitled" + page.id;
-                    await savePageAsMarkdown(page.id, title, path.join(__dirname, "markdown"));
+                    await savePageAsMarkdown(page.id, title, path.join(__dirname));
                 }
 
                 console.log("All pages and their child pages have been saved as Markdown.");
