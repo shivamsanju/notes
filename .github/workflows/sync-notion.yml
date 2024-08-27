@@ -27,10 +27,10 @@ jobs:
     - name: Create Node.js script file
       run: |
         echo '
-        const { Client } = require('@notionhq/client');
-        const { NotionToMarkdown } = require('notion-to-md');
-        const fs = require('fs');
-        const path = require('path');
+        const { Client } = require("@notionhq/client");
+        const { NotionToMarkdown } = require("notion-to-md");
+        const fs = require("fs");
+        const path = require("path");
 
         const notion = new Client({ auth: process.env.NOTION_AUTH_KEY });
         const n2m = new NotionToMarkdown({
@@ -41,7 +41,7 @@ jobs:
         });
 
         const sanitizeFilename = (name) => {
-            return name.replace(/[<>:"/\\|?*]+/g, '').trim();
+            return name.replace(/[<>:"/\\|?*]+/g, "").trim();
         };
 
         const getTopLevelPages = async (cursor) => {
@@ -53,8 +53,8 @@ jobs:
                     start_cursor: cursor,
                     page_size: 100,
                     filter: {
-                        property: 'object',
-                        value: 'page',
+                        property: "object",
+                        value: "page",
                     },
                 });
 
@@ -78,7 +78,7 @@ jobs:
                     start_cursor: cursor,
                 });
 
-                children.push(...response.results.filter(block => block.type === 'child_page'));
+                children.push(...response.results.filter(block => block.type === "child_page"));
                 hasMore = response.has_more;
                 cursor = response.next_cursor;
             }
@@ -101,9 +101,9 @@ jobs:
 
             const childPages = await getChildPages(pageId);
             if (childPages.length > 0) {
-                content += '\n\n## Child Pages\n';
+                content += "\n\n## Child Pages\n";
                 for (const child of childPages) {
-                    const childTitle = child.child_page.title || 'Untitled';
+                    const childTitle = child.child_page.title || "Untitled";
                     const childFileName = sanitizeFilename(childTitle);
                     const childLink = `./${childFileName}/${childFileName}.md`;
                     content += `- [${childTitle}](${childLink})\n`;
@@ -123,13 +123,13 @@ jobs:
                 for (const page of topPages) {
                     const title = page.properties.title
                         ? page.properties.title.title[0].plain_text
-                        : 'Untitled' + page.id;
-                    await savePageAsMarkdown(page.id, title, path.join(__dirname, 'markdown'));
+                        : "Untitled" + page.id;
+                    await savePageAsMarkdown(page.id, title, path.join(__dirname, "markdown"));
                 }
 
-                console.log('All pages and their child pages have been saved as Markdown.');
+                console.log("All pages and their child pages have been saved as Markdown.");
             } catch (error) {
-                console.error('Error fetching or saving pages:', error.message);
+                console.error("Error fetching or saving pages:", error.message);
             }
         })();
         ' > generateMarkdown.js
