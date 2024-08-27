@@ -1,4 +1,4 @@
-# Strategy Pattern
+# 🚀 Strategy Pattern
 
 
 ### Purpose

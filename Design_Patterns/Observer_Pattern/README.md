@@ -1,4 +1,4 @@
-# Observer Pattern
+# 🚀 Observer Pattern
 
 
 ### Purpose

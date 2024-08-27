@@ -1,8 +1,8 @@
-# Design Patterns
+# 🚀 Design Patterns
 
 
 
-## Linked Pages
+## 🔎 Linked Pages
 | Link |
 |------|
 | [Factory Pattern](./Factory_Pattern/README.md) |

@@ -1,4 +1,4 @@
-# Mediator Pattern
+# 🚀 Mediator Pattern
 
 
 ### Purpose
