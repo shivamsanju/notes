@@ -1,5 +1,6 @@
 name: Sync Notion
-
+permissions:
+  contents: write
 on:
   schedule:
     - cron: '0 0 * * *' # Runs daily at midnight UTC
@@ -150,5 +151,3 @@ jobs:
         DATE=$(date +"%Y-%m-%d")
         git commit -m "Sync notion - ${DATE}"
         git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.SYNC_GITHUB_TOKEN }}
