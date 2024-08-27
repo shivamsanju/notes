@@ -42,8 +42,12 @@ jobs:
         });
 
         const sanitizeFilename = (name) => {
-            return name.replace(/[<>:"/\\|?*]+/g, "").replace(/\s+/g, "_").trim();
-        };
+            return name.replace(/[<>:"/\\|?*]+/g, "")
+            .replace(/(?<=\S) (?=\S)/g, "_")
+            .replace(/_+-_+/g, "-")
+            .replace(/^-+|-+$/g, "")
+            .trim();
+        }
 
         const getTopLevelPages = async (cursor) => {
             const pages = [];
@@ -155,6 +159,11 @@ jobs:
     - name: Commit and push changes
       run: |
         git add .
-        DATE=$(date +"%Y-%m-%d")
-        git commit -m "Sync notion - ${DATE}"
-        git push
+        if ! git diff --cached --quiet; then
+          DATE=$(date +"%Y-%m-%d")
+          git commit -m "Sync notion on ${DATE}"
+          git push
+        else
+          echo "No changes to commit"
+        fi
+ 
