@@ -17,6 +17,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Remove old files
+      run: |
+        echo "Removing old files..."
+        rm -rf .
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
