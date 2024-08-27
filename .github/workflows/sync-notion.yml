@@ -112,12 +112,12 @@ jobs:
             const mdBlocks = await n2m.pageToMarkdown(pageId);
             const mdString = n2m.toMarkdownString(mdBlocks);
 
-            let content = "# " + title + "\n\n";
+            let content = "# 🚀 " + title + "\n\n";
             content += (mdString.parent || "");
 
             const childPages = await getChildPages(pageId);
             if (childPages.length > 0) {
-                content += "\n\n## Linked Pages\n";
+                content += "\n\n## 🔎 Linked Pages\n";
                 content += "| Link |\n";
                 content += "|------|\n";
 
