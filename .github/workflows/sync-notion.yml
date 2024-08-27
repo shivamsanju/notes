@@ -112,7 +112,8 @@ jobs:
             const mdBlocks = await n2m.pageToMarkdown(pageId);
             const mdString = n2m.toMarkdownString(mdBlocks);
 
-            let content = mdString.parent;
+            let content = "# " + title + "\n\n";
+            content += (mdString.parent || "");
 
             const childPages = await getChildPages(pageId);
             if (childPages.length > 0) {
