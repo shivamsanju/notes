@@ -116,12 +116,15 @@ jobs:
 
             const childPages = await getChildPages(pageId);
             if (childPages.length > 0) {
-                content += "\n\n## Child Pages\n";
+                content += "\n\n## Linked Pages\n";
+                content += "| Link |\n";
+                content += "|------|\n";
+
                 for (const child of childPages) {
                     const childTitle = child.child_page.title || "Untitled";
                     const childFileName = sanitizeFilename(childTitle);
                     const childLink = `./${childFileName}/README.md`;
-                    content += `- [${childTitle}](${childLink})\n`;
+                    content += `| [${childTitle}](${childLink}) |\n`;
                     await savePageAsMarkdown(child.id, childTitle, sanitizedDirPath);
                 }
             }
