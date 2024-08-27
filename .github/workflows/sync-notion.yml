@@ -43,9 +43,8 @@ jobs:
 
         const sanitizeFilename = (name) => {
             return name.replace(/[<>:"/\\|?*]+/g, "")
-            .replace(/(?<=\S) (?=\S)/g, "_")
-            .replace(/_+-_+/g, "-")
-            .replace(/^-+|-+$/g, "")
+            .replace(/\s+/g, "_")
+            .replace(/_-\_/g, "_")
             .trim();
         }
 
