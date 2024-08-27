@@ -5,6 +5,7 @@
 ## 🔎 Linked Pages
 | Link |
 |------|
+| [SOLID Principles](./SOLID_Principles/README.md) |
 | [Factory Pattern](./Factory_Pattern/README.md) |
 | [Abstract Factory Pattern](./Abstract_Factory_Pattern/README.md) |
 | [Singleton Pattern](./Singleton_Pattern/README.md) |
@@ -18,3 +19,4 @@
 | [State Pattern](./State_Pattern/README.md) |
 | [Mediator Pattern](./Mediator_Pattern/README.md) |
 | [Chain of Responsibility Pattern](./Chain_of_Responsibility_Pattern/README.md) |
+| [Untitled](./Untitled/README.md) |
