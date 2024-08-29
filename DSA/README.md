@@ -12,6 +12,6 @@
 | [Heaps](./Heaps/README.md) |
 | [Hash Maps](./Hash_Maps/README.md) |
 | [Array Deque](./Array_Deque/README.md) |
-| [Stream Api](./Stream_Api/README.md) |
 | [Sorting](./Sorting/README.md) |
 | [Graph Algorithms](./Graph_Algorithms/README.md) |
+| [Stream Api](./Stream_Api/README.md) |
