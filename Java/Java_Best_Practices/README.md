@@ -1,7 +1,7 @@
 # 🚀 Java Best Practices
 
 
-# 1. TABLE OF CONTENTS
+#  TABLE OF CONTENTS
 
 - [1. TABLE OF CONTENTS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#1-table-of-contents)
 - [2. CREATING AND DESTROYING OBJECTS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#2-creating-and-destroying-objects)

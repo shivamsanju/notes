@@ -1,7 +1,10 @@
 # 🚀 Java Internals
 
 
-## Java Development Kit
+# ♨️ Java Components
+
+
+### Java Development Kit
 
 
 ```mermaid
@@ -14,7 +17,7 @@ graph TD
 
 - Oracle JDK comes with some libraries pre-installed whereas Open JDK is more lightweight
 
-## Java Virtual Machines
+### Java Virtual Machines
 
 
 ```mermaid
@@ -27,7 +30,7 @@ graph TD
 
 - JRE consists of JVM, Java binaries, and other classes to execute any program successfully
 
-## JDK vs JRE
+### JDK vs JRE
 
 
 ```mermaid
@@ -44,7 +47,7 @@ graph TD
 
 - We can use JRE to deploy a java application, but we need JDK for development purpose because JRE doesn’t have compiler
 
-# 🚀 How code runs
+# ♨️ How code runs
 
 
 ```mermaid
@@ -60,7 +63,7 @@ graph LR
 
 - JVM has complex algorithms like **JIT** (Just in time compilation) to make the interpretation faster.
 
-# 🚀 JIT Compilation
+# ♨️ JIT Compilation
 
 - JIT Compilation is an algorithm used by JVM, which checks the more frequently used code and converts it to machine code.
 - As JIT compilation occurs over time by identifying frequently executed code, the longer a program runs, the more code JIT converts to native code, resulting in faster execution.
@@ -102,7 +105,7 @@ graph LR
 | Might be faster if heap < 3GB                                                | Faster if using long / double                                                |
 
 
-# 🚀 Memory management
+# ♨️ Memory management
 
 
 ```mermaid
@@ -156,5 +159,5 @@ graph TD
 - Since static objects are never out of scope, there is no garbage collection for the objects referenced from meta space.
 - All the threads and classes have access to meta space so static variables / methods can be accessed from anywhere.
 
-# 🚀 Garbage collection
+# ♨️ Garbage collection
 
