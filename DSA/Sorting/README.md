@@ -1,6 +1,9 @@
 # 🚀 Sorting
 
 
+[https://youtube.com/playlist?list=PL7hO-vBQK3K0_bgivFB4mZsjLdKdJ_DEm&feature=shared](https://youtube.com/playlist?list=PL7hO-vBQK3K0_bgivFB4mZsjLdKdJ_DEm&feature=shared)
+
+
 [Course: Mastering Data Structures & Algorithms using C and C++ | Udemy Business](https://tredence.udemy.com/course/datastructurescncpp/learn/lecture/13190984#overview)
 
 
