@@ -40,8 +40,11 @@
 8. What was the most difficult bug that you fixed in the past 6 months?
 	- Conflict point + Infosec single session topic
 9. How do you tackle challenges? Name a difficult challenge you faced while working on a project, how you overcame it, and what you learned.
+	- Infosec single session topic, talp tree data structures, replaced fetching everytime with sockets
 10. What are you excited about?
+	- Engineering challenges
 11. What frustrates you?
+	- repititive task / mundane
 12. Imagine it is your first day here at the company. What do you want to work on? What features would you improve on?
 13. What are the most interesting projects you have worked on and how might they be relevant to this company's environment?
 14. Tell me about a time you had a disagreement with your manager.
