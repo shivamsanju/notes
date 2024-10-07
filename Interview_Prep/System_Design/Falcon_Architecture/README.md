@@ -1,7 +1,7 @@
 # 🚀 Falcon Architecture
 
 
-![falcon-architechture-exc.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/2218d451-9074-449a-9e14-4ae157871206/1c5c9930-f6f6-4a85-9a15-81a64569ec14/falcon-architechture-exc.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20241006%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241006T005414Z&X-Amz-Expires=3600&X-Amz-Signature=e9f1eecde2075295032ba0c9a3274028022c0fa9031740a92dbc608b4129f7b1&X-Amz-SignedHeaders=host&x-id=GetObject)
+![falcon-architechture-exc.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/2218d451-9074-449a-9e14-4ae157871206/1c5c9930-f6f6-4a85-9a15-81a64569ec14/falcon-architechture-exc.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20241007%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20241007T005126Z&X-Amz-Expires=3600&X-Amz-Signature=86a3086b624f195908bac7d64b19334af8f856f44e84aa219b5c1b6ae95fb0ca&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 - **Kimble PSA, Salesforce, and Azure Blob Storage** trigger events in **Azure Data Factory** when data is updated or created.
 - **Azure Data Factory** performs **data transformation** to convert raw data into a structured format.
