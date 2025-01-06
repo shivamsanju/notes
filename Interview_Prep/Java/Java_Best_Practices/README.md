@@ -494,15 +494,11 @@ Finalizers are unpredictable, often dangerous and generally.
 
 _**Never do anything time-critical in a finalizer.**_
 
-
 > There is no guarantee they'll be executed promptly.
-
 
 _**Never depend on a finalizer to update critical persistent state.**_
 
-
 > There is no guarantee they'll be executed at all.
-
 
 Uncaught exceptions inside a finalizer won't even print a warning.
 
