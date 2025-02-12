@@ -25,7 +25,6 @@ flowchart TD
 
     classDef interfaceStyle fill:#3b7775,stroke-dasharray: 5, 5;
     class A,B,C,D,E,K,O interfaceStyle;
-
 ```
 
 

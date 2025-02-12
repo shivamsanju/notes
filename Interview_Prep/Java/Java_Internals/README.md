@@ -12,7 +12,6 @@ graph TD
     A[JDK Distributors]
     A --> B[Oracle JDK]
     A --> C[Open JDK]
-
 ```
 
 - Oracle JDK comes with some libraries pre-installed whereas Open JDK is more lightweight
@@ -25,7 +24,6 @@ graph TD
     A[Java VM Types] --> B[HotSpot VM]
     A --> C[GraalVM]
     A --> D[Eclipse OpenJ9 VM]
-
 ```
 
 - JRE consists of JVM, Java binaries, and other classes to execute any program successfully
@@ -55,7 +53,6 @@ graph LR
     A[Main.java] -->|Compiled by javac into bytecode| B[Main.class]
     B -->|Packaged into .jar/.war files| C[.jar/.war files]
     C -->|Bytecode interpreted by JVM during runtime| D[JVM]
-
 ```
 
 
@@ -132,7 +129,6 @@ graph TD
     JVM --> Stack
     JVM --> Heap
     JVM --> Metaspace
-
 ```
 
 

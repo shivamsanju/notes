@@ -28,7 +28,6 @@ classDiagram
     Facade --> Subsystem1
     Facade --> Subsystem2
     Facade --> Subsystem3
-
 ```
 
 

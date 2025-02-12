@@ -53,7 +53,6 @@ classDiagram
     ConcreteFactory1 --> ProductB1
     ConcreteFactory2 --> ProductA2
     ConcreteFactory2 --> ProductB2
-
 ```
 
 

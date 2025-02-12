@@ -29,7 +29,6 @@ classDiagram
     Context --> State : uses
     State <|.. ConcreteStateA
     State <|.. ConcreteStateB
-
 ```
 
 

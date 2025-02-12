@@ -26,7 +26,6 @@ classDiagram
     Handler <|-- ConcreteHandler1
     Handler <|-- ConcreteHandler2
     Handler --> Handler : successor
-
 ```
 
 

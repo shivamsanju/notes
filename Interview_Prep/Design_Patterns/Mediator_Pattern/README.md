@@ -38,7 +38,6 @@ classDiagram
     Colleague <|-- ConcreteColleague1
     Colleague <|-- ConcreteColleague2
     Colleague --> Mediator : uses
-
 ```
 
 

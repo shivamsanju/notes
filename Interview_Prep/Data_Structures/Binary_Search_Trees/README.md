@@ -12,7 +12,6 @@ graph LR
     A["$$n=2^0 + 2^1 + 2^2 + ... + 2^h$$"] --> B["$$n=\frac{2^{h+1} - 1}{2 - 1}$$"]
     B --> C["$$n=2^{h+1} - 1$$"]
     C --> D["$$h ≈ log(n)$$"]
-
 ```
 
 
@@ -35,8 +34,6 @@ graph LR
     
     classDef intermediate fill:#363;
     class A,H,I intermediate;
-    
-
 ```
 
 

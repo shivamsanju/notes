@@ -29,7 +29,6 @@ public class Main {
         thread.start(); // start() launches the new thread
     }
 }
-
 ```
 
 
@@ -52,7 +51,6 @@ public class Main {
         thread.start();
     }
 }
-
 ```
 
 
@@ -81,7 +79,6 @@ public class Main {
         System.out.println(futureTask.get());  // Fetch the result
     }
 }
-
 ```
 
 
@@ -187,7 +184,6 @@ public class Main {
         t.interrupt(); // Interrupt the thread
     }
 }
-
 ```
 
 
@@ -224,7 +220,6 @@ public class MyThread extends Thread {
         t.interrupt();      // Interrupt the thread
     }
 }
-
 ```
 
 
@@ -263,7 +258,6 @@ public class MyThread extends Thread {
         t.interrupt();      // Interrupt the thread
     }
 }
-
 ```
 
 
@@ -307,7 +301,6 @@ class GracefulShutdownThread extends Thread {
         t.shutdown();  // Request shutdown
     }
 }
-
 ```
 
 
@@ -348,7 +341,6 @@ public class Main {
         System.out.println("Main thread continues after child thread completes.");
     }
 }
-
 ```
 
 
@@ -396,7 +388,6 @@ public class Main {
         System.out.println("Final count (without synchronization): " + counter.getCount());
     }
 }
-
 ```
 
 
@@ -427,7 +418,6 @@ class Counter {
         return count;
     }
 }
-
 ```
 
 
@@ -454,7 +444,6 @@ class Counter {
         }
     }
 }
-
 ```
 
 
@@ -684,7 +673,6 @@ public class DeadlockExample {
         t2.start();
     }
 }
-
 ```
 
 - **Explanation**:
@@ -842,7 +830,6 @@ The `Lock` interface provides more sophisticated locking mechanisms than the int
 	        rwLock.writeLock().unlock();
 	    }
 	}
-	
 	```
 
 - **Pros**:
@@ -872,7 +859,6 @@ The `Lock` interface provides more sophisticated locking mechanisms than the int
 		        lock.unlockRead(stamp);
 		    }
 		}
-		
 		```
 
 	- Supports **write lock** and **read lock** similar to `ReadWriteLock`.
@@ -1014,7 +1000,6 @@ public class SimpleSemaphoreExample {
         }
     }
 }
-
 ```
 
 
@@ -1109,7 +1094,6 @@ public class ProducerConsumerService {
 
     }
 }
-
 ```
 
 
@@ -1362,7 +1346,6 @@ class Main {
         System.out.println(map.get("Key1"));
     }
 }
-
 ```
 
 
@@ -1391,7 +1374,6 @@ class ClientHandler extends Thread {
         // Handle client request
     }
 }
-
 ```
 
 
@@ -1414,7 +1396,6 @@ class ThreadPoolServer {
         });
     }
 }
-
 ```
 
 
@@ -1436,7 +1417,6 @@ class NonBlockingServer {
         // Register channel with selector and handle connections
     }
 }
-
 ```
 
 
@@ -1459,7 +1439,6 @@ public class Main {
         virtualThread.join();  // Wait for the virtual thread to complete
     }
 }
-
 ```
 
 

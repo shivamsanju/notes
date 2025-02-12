@@ -27,7 +27,6 @@ graph TD
     A -- 3 --> C
     B -- 4 --> D
     C -- 1 --> D
-
 ```
 
 
@@ -161,7 +160,6 @@ public class Graph {
         graph.BFS(0);
     }
 }
-
 ```
 
 
@@ -182,6 +180,5 @@ graph LR
     2 --> 4
     3 --> 5
     4 --> 5
-
 ```
 

@@ -82,6 +82,5 @@ List<String> filteredNames = names.stream()
 
 // Example of terminal operations
 long count = names.stream().count();
-
 ```
 

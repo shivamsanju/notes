@@ -35,7 +35,6 @@ classDiagram
     Decorator <|-- ConcreteDecoratorA
     Decorator <|-- ConcreteDecoratorB
     Component o-- Decorator : wraps
-
 ```
 
 

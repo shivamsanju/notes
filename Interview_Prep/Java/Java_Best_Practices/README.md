@@ -189,7 +189,6 @@ public class NutritionFacts {
 		carbohydrate		= builder.carbohydrate;
 	}
 }
-
 ```
 
 
@@ -211,14 +210,12 @@ _**Public final field**_
 
 
 ```java
-
-	public class Elvis{
+public class Elvis{
 		public static final Elvis INSTANCE = new Elvis();
 		private Elvis(){...}
 		...
 		public void singASong(){...}
 	}
-
 ```
 
 
@@ -229,15 +226,13 @@ _**Singleton with static factory**_
 
 
 ```java
-
-	public class Elvis{
+public class Elvis{
 		private static final Elvis INSTANCE = new Elvis();
 		private Elvis(){...}
 		public static Elvis getInstance(){ return INSTANCE; }
 		...
 		public void singASong(){...}
 	}
-
 ```
 
 
@@ -251,12 +246,10 @@ It is needed a _`readResolve`_ method and declare all the fields _transient_ in 
 
 
 ```java
-
-	private Object readResolve(){
+private Object readResolve(){
 		//Return the one true Elvis and let the garbage collector take care of the Elvis impersonator
 		return INSTANCE;
 	}
-
 ```
 
 
@@ -264,13 +257,11 @@ _**Enum Singleton, the preferred approach (JAVA 1.5)**_
 
 
 ```java
-
-	public enum Elvis(){
+public enum Elvis(){
 		INSTANCE;
 		...
 		public void singASong(){...}
 	}
-
 ```
 
 
@@ -573,8 +564,7 @@ _**The Recipe**_
 5. When you are finished writing your _equals_ method, ask yourself three questions: Is it Symmetric? Is it Transitive? Is it Consistent? (the other 2 usually take care of themselves)
 
 ```java
-
-	@Override
+@Override
 	public boolean equals (Object o){
 		if(o == this)
 			return true;
@@ -587,7 +577,6 @@ _**The Recipe**_
 			&& pn.prefix == prefix
 			&& pn.areaCode == areaCode;
 	}
-
 ```
 
 
@@ -626,8 +615,7 @@ _**The Recipe**_
 2. Ask yourself if equal instances have equal hash codes.
 
 ```java
-
-	private volatile int hashCode; // Item 71 (Lazily initialized, cached hashCode)
+private volatile int hashCode; // Item 71 (Lazily initialized, cached hashCode)
 
 	@Override public int hashCode(){
 		int result = hashCode;
@@ -640,7 +628,6 @@ _**The Recipe**_
 		}
 		return result;
 	}
-
 ```
 
 
@@ -675,8 +662,7 @@ Simple clone method if object does **not** contain fields that refer to mutable 
 
 
 ```java
-
-	@Override public PhoneNumber clone() {
+@Override public PhoneNumber clone() {
 		try {
 			//PhoneNumber.clone must cast the result of super.clone() before returning it.
 			return (PhoneNumber) super.clone();
@@ -684,7 +670,6 @@ Simple clone method if object does **not** contain fields that refer to mutable 
 			throw new AssertionError(); // Can't happen
 		}
 	}
-
 ```
 
 
@@ -698,8 +683,7 @@ Calling _clone_ recursively in the mutable objects is the easiest way.
 
 
 ```java
-
-	@Override public Stack clone() {
+@Override public Stack clone() {
 		try {
 			Stack result = (Stack) super.clone();
 			// From Java 1.5, don't need casting when cloning arrays
@@ -709,7 +693,6 @@ Calling _clone_ recursively in the mutable objects is the easiest way.
 			throw new AssertionError();
 		}
 	}
-
 ```
 
 
@@ -752,9 +735,7 @@ Better provide an alternative of object copying, or don't provide it at all.
 
 
 ```java
-
-	public Yum(Yum yum);
-
+public Yum(Yum yum);
 ```
 
 
@@ -762,9 +743,7 @@ Better provide an alternative of object copying, or don't provide it at all.
 
 
 ```java
-
-	public static Yum newInstance(Yum yum);
-
+public static Yum newInstance(Yum yum);
 ```
 
 
@@ -843,10 +822,8 @@ Nonzero-length array is always mutable.
 
 
 ```java
-
-	//Potential security hole!
+//Potential security hole!
 	public static final Thing[] VALUES = {...}
-
 ```
 
 
@@ -854,10 +831,8 @@ Solution:
 
 
 ```java
-
-	private static final Thing[] PRIVATE_VALUES ={...}
+private static final Thing[] PRIVATE_VALUES ={...}
 	public static final List<Thing> VALUES = Collections.unmodifiableList(Arrays.asList(PRIVATE_VALUES));
-
 ```
 
 
@@ -865,12 +840,10 @@ Or:
 
 
 ```java
-
-	private static final Thing[] PRIVATE_VALUES ={...}
+private static final Thing[] PRIVATE_VALUES ={...}
 	public static final Thing[] values(){
 		return PRIVATE_VALUES.clone;
 	}
-
 ```
 
 
@@ -881,12 +854,10 @@ Degenerate classes should not be public
 
 
 ```java
-
-	class Point {
+class Point {
 		public double x;
 		public double y;
 	}
-
 ```
 
 - They don't benefit from _encapsulation_ ([Item 13](https://www.notion.so/shvmsnju/Java-Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#13-minimize-the-accessibility-of-classes-and-members))
@@ -898,8 +869,7 @@ Replace them with _accessor methods_ (getters) and _mutators_ (setters).
 
 
 ```java
-
-	class Point {
+class Point {
 		private double x;
 		private double y;
 
@@ -914,7 +884,6 @@ Replace them with _accessor methods_ (getters) and _mutators_ (setters).
 		public void setX(double x) { this.x = x; }
 		public void setY(double y) { this.y = y; }
 	}
-
 ```
 
 
@@ -940,8 +909,7 @@ They are easier to design, implement and use. And they are less prone to errors 
 - Ensure exclusive access to any mutable component
 
 ```java
-
-	public final class Complex {
+public final class Complex {
 		private final double re;
 		private final double im;
 
@@ -966,8 +934,6 @@ They are easier to design, implement and use. And they are less prone to errors 
 
 		@Override public boolean equals (Object o){...}
 	}
-
-
 ```
 
 
@@ -981,11 +947,9 @@ Immutable objects are thread-safe. Synchronization is not required. They can be 
 
 
 ```java
-
-	public static final Complex ZERO = new Complex(0,0)
+public static final Complex ZERO = new Complex(0,0)
 	public static final Complex ONE = new Complex(1,0)
 	public static final Complex I = new Complex(0,1)
-
 ```
 
 
@@ -1007,8 +971,7 @@ The disadvantage is that a separate object is required for distinct values. In s
 2. Make all of its constructors private or package-private and add a public static factory
 
 ```java
-
-	public class Complex {
+public class Complex {
 		private final double re;
 		private final double im;
 
@@ -1023,7 +986,6 @@ The disadvantage is that a separate object is required for distinct values. In s
 
 		...
 	}
-
 ```
 
 
@@ -1072,8 +1034,7 @@ Each instance method in the new class (_forwarding class_)invokes the correspond
 
 
 ```java
-
-	// Wrapper class - uses composition in place of inheritance
+// Wrapper class - uses composition in place of inheritance
 	public class InstrumentedSet<E> extends ForwardingSet<E> {
 		private int addCount = 0;
 		//It extends a class(inheritance),but it is a forwarding class that is actually a compositon of the Set
@@ -1098,13 +1059,11 @@ Each instance method in the new class (_forwarding class_)invokes the correspond
 			return addCount;
 		}
 	}
-
 ```
 
 
 ```java
-
-	// Reusable forwarding class
+// Reusable forwarding class
 	public class ForwardingSet<E> implements Set<E> {
 		private final Set<E> s; // Here is the composition. It uses the Set but not extends it.
 		public ForwardingSet(Set<E> s) { this.s = s ; }
@@ -1117,8 +1076,6 @@ Each instance method in the new class (_forwarding class_)invokes the correspond
 		public boolean addAll (Collection< ? extends E> c){return s.addAll(c)}
 		...
 	}
-
-
 ```
 
 
@@ -1177,8 +1134,7 @@ Combine the virtues of interfaces and abstract classes, by providing an abstract
 
 
 ```java
-
-	//Concrete implementation built atop skeletal implementation
+//Concrete implementation built atop skeletal implementation
 	static List<Integer> intArrayAsList(final int[] a) {
 		if (a == null) throw new NullPointerException();
 
@@ -1205,7 +1161,6 @@ Combine the virtues of interfaces and abstract classes, by providing an abstract
 			}
 		}
 	}
-
 ```
 
 
@@ -1228,14 +1183,12 @@ Any other use, like the _constant interface_ should be avoided.
 
 
 ```java
-
-	// Constant interface antipattern
+// Constant interface antipattern
 	public interface PhysicalConstants {
 		static final double AVOGRADOS_NUMBER = 6.02214199e23;
 		static final double BOLTZAN_CONSTANT = 1.3806503e-23;
 		static final double ELECTRON_MASS = 9.10938188e-31;
 	}
-
 ```
 
 
@@ -1243,8 +1196,7 @@ Better use an enum type ([Item 31](https://www.notion.so/shvmsnju/Java-Best-Prac
 
 
 ```java
-
-	//Constant utility class
+//Constant utility class
 	package com.effectivejava.science
 
 	public class PhysicalConstants{
@@ -1254,7 +1206,6 @@ Better use an enum type ([Item 31](https://www.notion.so/shvmsnju/Java-Best-Prac
 		public static final double BOLTZAN_CONSTANT = 1.3806503e-23;
 		public static final double ELECTRON_MASS = 9.10938188e-31;
 	}
-
 ```
 
 
@@ -1262,8 +1213,7 @@ To avoid the need of qualifying use _static import_.
 
 
 ```java
-
-	//Use of static import to avoid qualifying constants
+//Use of static import to avoid qualifying constants
 	import static com.effectivejava.science.PhysicalConstants.*
 
 	public class Test {
@@ -1273,7 +1223,6 @@ To avoid the need of qualifying use _static import_.
 		...
 		// Many more uses of PhysicalConstants justify the static import
 	}
-
 ```
 
 
@@ -1287,8 +1236,7 @@ They have lot of boilerplate, bad readability, increase memory footprint, and mo
 
 
 ```java
-
-	// Tagged Class
+// Tagged Class
 	class Figure{
 		enum Shaple {RECTANGLE, CIRCLE};
 
@@ -1325,7 +1273,6 @@ They have lot of boilerplate, bad readability, increase memory footprint, and mo
 			}
 		}
 	}
-
 ```
 
 
@@ -1338,8 +1285,7 @@ A tagged class is just a palid imitation of a class hierarchy.
 - Extendability and flexibility (Square extends Rectangle)
 
 ```java
-
-	abstract class Figure{
+abstract class Figure{
 		abstract double area();
 	}
 	class Circle extends Figure{
@@ -1366,7 +1312,6 @@ A tagged class is just a palid imitation of a class hierarchy.
 			super(side,side);
 		}
 	}
-
 ```
 
 
@@ -1383,13 +1328,11 @@ It is possible to define a object whose method perform operations on other objec
 
 
 ```java
-
-	class StringLengthComparator{
+class StringLengthComparator{
 		public int compare(String s1, String s2){
 			return s1.length() - s2.length();
 		}
 	}
-
 ```
 
 
@@ -1403,24 +1346,20 @@ To be able to pass different strategies, clients should invoke methods from a _s
 
 
 ```java
-
-	public interface Comparator<T>{
+public interface Comparator<T>{
 		public int compare(T t1, T t2);
 	}
-
 ```
 
 
 ```java
-
-	class StringLengthComparator implements Comparator<String>{
+class StringLengthComparator implements Comparator<String>{
 		private StringLengthComparator(){} // Private constructor
 		public static final StringLengthComparator INSTANCE = new StringLengthComparator(); // Singleton instance
 		public int compare(String s1, String s2){
 			return s1.length() - s2.length();
 		}
 	}
-
 ```
 
 
@@ -1428,13 +1367,11 @@ Using **anonymous classes**
 
 
 ```java
-
-	Arrays.sort(stringArray, new Comparator<String>(){
+Arrays.sort(stringArray, new Comparator<String>(){
 		public int compare(String s1, String s2){
 			return s1.length() - s2.length();
 		}
 	})
-
 ```
 
 
@@ -1446,8 +1383,7 @@ A host class can export the a public static field or factory, whose type is the 
 
 
 ```java
-
-	// Exporting a concrete strategy
+// Exporting a concrete strategy
 	class Host{
 		private static class StringLengthComparator implements Comparator<String>, Serializable {
 			public int compare(String s1, String s2){
@@ -1460,7 +1396,6 @@ A host class can export the a public static field or factory, whose type is the 
 
 		...
 	}
-
 ```
 
 
@@ -1511,24 +1446,20 @@ _Raw types_ is the generic type definition without type parameters. `List`
 
 
 ```java
-
-	private final List stamps = ...
+private final List stamps = ...
 
 	stamps.add(new Coin(...)); //Erroneous insertion. Does not throw any error
 
 	Stamp s = (Stamp) stamps.get(i); // Throws ClassCastException when getting the Coin
-
 ```
 
 
 ```java
-
-	private final Collection<Stamp> stamps = ...
+private final Collection<Stamp> stamps = ...
 
 	stamps.add(new Coin()); // Compile time error. Coin can not be add to Collection<Stamp>
 
 	Stamp s = stamps.get(i); // No need casting
-
 ```
 
 
@@ -1554,11 +1485,9 @@ Never add elements (other than null) into a `Collection<?>`
 - Use of instanceof
 
 ```java
-
-	if (o instanceof Set){
+if (o instanceof Set){
 		Set<?> = (Set<?>) o;
 	}
-
 ```
 
 
@@ -1584,10 +1513,8 @@ Eliminate every unchecked warning that you can, if you can´t use _Suppress-Warn
 
 
 ```java
-
-	Set<Lark> exaltation = new HashSet(); Warning, unchecked conversion found.
+Set<Lark> exaltation = new HashSet(); Warning, unchecked conversion found.
 	Set<Lark> exaltation = new HashSet<Lark>(); Good
-
 ```
 
 
@@ -1601,15 +1528,13 @@ Generics are _invariant_: for any two types `Type1` and `Type2`, `List<Type1>` i
 
 
 ```java
-
-	// Fails at runtime
+// Fails at runtime
 	Object[] objectArray = new Long[1];
 	objectArray[0] ="I don't fit in" // Throws ArrayStoreException
 
 	// Won't compile
 	List<Object> ol = new ArrayList<Long>();//Incompatible types
 	ol.add("I don't fit in")
-
 ```
 
 
@@ -1630,8 +1555,7 @@ Making [Item 6](https://www.notion.so/shvmsnju/Java-Best-Practices-6b981c27784b4
 
 
 ```java
-
-	public class Stack{
+public class Stack{
 		private E[] elements;
 		private int size = 0;
 		private static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -1654,7 +1578,6 @@ Making [Item 6](https://www.notion.so/shvmsnju/Java-Best-Practices-6b981c27784b4
 		}
 		...
 	}
-
 ```
 
 
@@ -1662,10 +1585,8 @@ There will be one error:
 
 
 ```java
-
-	//Error: Generic array creation. Can't create an array of a non-reifiable type.
+//Error: Generic array creation. Can't create an array of a non-reifiable type.
 	elements = new E [DEFAULT_INITIAL_CAPACITY];
-
 ```
 
 
@@ -1673,8 +1594,7 @@ There will be one error:
 
 
 ```java
-
-	// Warning: Compiler can not prove the type safe, but we can.
+// Warning: Compiler can not prove the type safe, but we can.
 	// This elements array will contain only E instances from push(E).
 	// This is sufficient to ensure type safety, but the runtime
 	// type of the array won't be E[]; it will always be Object[]!
@@ -1682,7 +1602,6 @@ There will be one error:
 	public Stack(){
 		elements = (E[]) new Object [DEFAULT_INITIAL_CAPACITY];
 	}
-
 ```
 
 
@@ -1690,12 +1609,10 @@ There will be one error:
 
 
 ```java
-
-	...
+...
 	private Object[] elements;
 	...
 	result = elements[--size] // Error: found Object, required E
-
 ```
 
 
@@ -1703,9 +1620,7 @@ A cast will generate a warning. Beacuse E is a non-reifiable type, there is no w
 
 
 ```java
-
-	result = (E) elements[--size]
-
+result = (E) elements[--size]
 ```
 
 
@@ -1713,8 +1628,7 @@ The appropriate suppression of the unchecked warning
 
 
 ```java
-
-	public E pop(){
+public E pop(){
 		if (size == 0)
 			throw new EmptyStackException();
 
@@ -1724,7 +1638,6 @@ The appropriate suppression of the unchecked warning
 		elements[size] = null;
 		return result;
 	}
-
 ```
 
 
@@ -1735,14 +1648,12 @@ Generic Method
 
 
 ```java
-
-	//
+//
 	public static <E> Set<E> union(Set<E> s1, Set<E> s2){
 		Set<E> result = new HashSet<E>(s1);
 		result.addAll(s2);
 		return result;
 	}
-
 ```
 
 
@@ -1753,9 +1664,7 @@ In generic constructors the type parameters have to be on both sides of the decl
 
 
 ```java
-
-	Map<String,List<String>> anagrams = new HashMap<String, List<String>>();
-
+Map<String,List<String>> anagrams = new HashMap<String, List<String>>();
 ```
 
 
@@ -1763,16 +1672,12 @@ To avoid ic create a _generic static factory method_
 
 
 ```java
-
-	public static <K,V> HashMap<K,V> newHashMap(){
+public static <K,V> HashMap<K,V> newHashMap(){
 		return new HashMap<K,V>();
 	}
 
 	//Use
 	Map<String,List<String>> anagrams = newHashMap();
-
-
-
 ```
 
 
@@ -1780,8 +1685,7 @@ To avoid ic create a _generic static factory method_
 
 
 ```java
-
-	public interface UnaryFunction<T>{
+public interface UnaryFunction<T>{
 		T apply(T arg);
 	}
 
@@ -1795,7 +1699,6 @@ To avoid ic create a _generic static factory method_
 	public static<T> UnaryFunction<T> identityFunction(){
 		return(UnaryFunction<T>) IDENTITY_FUNCTION;
 	}
-
 ```
 
 
@@ -1803,8 +1706,7 @@ To avoid ic create a _generic static factory method_
 
 
 ```java
-
-	public static<T extends Comparable<T>> T max (List<T> list){
+public static<T extends Comparable<T>> T max (List<T> list){
 		Iterator <T> i = list.iterator():
 		T result = i.next();
 		while (i.hasNext()) {
@@ -1814,7 +1716,6 @@ To avoid ic create a _generic static factory method_
 		}
 		return result;
 	}
-
 ```
 
 
@@ -1825,8 +1726,7 @@ Parameterized types are invariant.([Item 25](https://www.notion.so/shvmsnju/Java
 
 
 ```java
-
-	public void pushAll(Iterable<E> src){
+public void pushAll(Iterable<E> src){
 		for(E e : src)
 			puhs(e)
 	}
@@ -1835,7 +1735,6 @@ Parameterized types are invariant.([Item 25](https://www.notion.so/shvmsnju/Java
 	Stack<Number> numberStack = new Stack<Number>();
 	Iterable<Integer> integers = ...
 	numberStack.pushAll(integers); //Error message here: List<Integer> is not a subtype of List<Number>
-
 ```
 
 
@@ -1846,12 +1745,10 @@ Producer
 
 
 ```java
-
-	public void pushAll(Iterable<? Extends E> src){
+public void pushAll(Iterable<? Extends E> src){
 		for (E e : src)
 			push(e);
 	}
-
 ```
 
 
@@ -1859,12 +1756,10 @@ Consumer
 
 
 ```java
-
-	public void popAll(Collection<? super E> dst){
+public void popAll(Collection<? super E> dst){
 		while(!isEmpty())
 			dst.add(pop());
 	}
-
 ```
 
 
@@ -1881,14 +1776,12 @@ Type inference in generics
 
 
 ```java
-
-	Set<Integer> integers =...
+Set<Integer> integers =...
 	Set<Double> doubles =...
 	Set<Number> numbers = union(integers,doubles);//Error
 
 	//Needs a 'explicit type parameter'
 	Set<Number> numbers = Union.<Number>union(integers,doubles);
-
 ```
 
 
@@ -1911,12 +1804,10 @@ Thanks to the type of the class literal. `Class<T>`
 
 
 ```java
-
-	public class Favorites{
+public class Favorites{
 		public void putFavorites(Class<T> type, T instance);
 		public <T> getFavorite(Class<T> type);
 	}
-
 ```
 
 
@@ -1924,8 +1815,7 @@ Thanks to the type of the class literal. `Class<T>`
 
 
 ```java
-
-	Favorites f = new Favorites();
+Favorites f = new Favorites();
 	f.putFavorites(String.class, "JAVA");
 	f.putFavorites(Integer.class, 0xcafecace);
 	f.putFavorites(Class.class, Favorite.class);
@@ -1933,7 +1823,6 @@ Thanks to the type of the class literal. `Class<T>`
 	String s = f.getFavorites(String.class);
 	int i =f.getFavorites(Integer.class);
 	Class<?> c = f.getFavorites(Class.class);
-
 ```
 
 
@@ -1941,8 +1830,7 @@ Thanks to the type of the class literal. `Class<T>`
 
 
 ```java
-
-	public class Favorites{
+public class Favorites{
 		private Map<Class<?>, Object> favorites = new HashMap<Class<?>, Object>();
 
 		public <T> void putFavorites(Class<T> type, T instance){
@@ -1955,7 +1843,6 @@ Thanks to the type of the class literal. `Class<T>`
 			return type.cast(favorites.get(type));
 		}
 	}
-
 ```
 
 
@@ -1975,8 +1862,7 @@ They are compile-time type safe.
 
 
 ```java
-
-	public enum Planet{
+public enum Planet{
 		MERCURY(3.334e+23,2.234e6)
 		VENUS(4.234e+23,6.636e6)
 		EARTH(5.865e+23,6.256e6)
@@ -2002,7 +1888,6 @@ They are compile-time type safe.
 			return mass * surfaceGravity;
 		}
 	}
-
 ```
 
 
@@ -2017,8 +1902,7 @@ Enums should be a member class inside a top-level class if it is not generally u
 
 
 ```java
-
-	public enum Operation{
+public enum Operation{
 		PLUS { double apply(double x, double y){return x + y;}},
 		MINUS { double apply(double x, double y){return x - y;}},
 		TIMES { double apply(double x, double y){return x * y;}},
@@ -2028,7 +1912,6 @@ Enums should be a member class inside a top-level class if it is not generally u
 		abstract double apply(double x, double y);
 
 	}
-
 ```
 
 
@@ -2037,8 +1920,7 @@ Use it, if multiple enum constants share common behaviors.
 
 
 ```java
-
-	enum PayrollDay{
+enum PayrollDay{
 		MONDAY(PayType.WEEKDAY),
 		TUESDAY(PayType.WEEKDAY),
 		...
@@ -2070,7 +1952,6 @@ Use it, if multiple enum constants share common behaviors.
 			}
 		}
 	}
-
 ```
 
 
@@ -2081,12 +1962,10 @@ Never derive a value of an enum to its ordinal
 
 
 ```java
-
-	public enum Ensemble{
+public enum Ensemble{
 		SOLO, DUET, TRIO...;
 		public int numberOfMusicians() {return ordinal() + 1}
 	}
-
 ```
 
 
@@ -2094,14 +1973,12 @@ Better approach
 
 
 ```java
-
-	public enum Ensemble{
+public enum Ensemble{
 		SOLO(1), DUET(2), TRIO(3)...TRIPLE_QUARTET(12);
 		private final int numberOfMusicians;
 		Ensemble(int size) {this.numberOfMusicians = size;}
 		public int numberOfMusicians() {return numberOfMusicians;}
 	}
-
 ```
 
 
@@ -2112,8 +1989,7 @@ If the elements of an enumarated are used primarily in sets, use EnumSet.
 
 
 ```java
-
-	public class Text{
+public class Text{
 		public enum Style { BOLD, ITALIC, UNDERLINE, STRIKETHROUGH }
 
 		//Any Set could be passed. Best EnumSet
@@ -2122,7 +1998,6 @@ If the elements of an enumarated are used primarily in sets, use EnumSet.
 
 	//Use
 	text.applyStyles(EnumSet.of(Style.BOLD, Style. ITALIC));
-
 ```
 
 
@@ -2136,8 +2011,7 @@ Use EnumMap to associate data with an enum
 
 
 ```java
-
-	Map<Herb.Type, Set<Herb>> herbsByType = new EnumMap<Herb.Type, Set<Herb>>(Herb.Type.class);
+Map<Herb.Type, Set<Herb>> herbsByType = new EnumMap<Herb.Type, Set<Herb>>(Herb.Type.class);
 
 	for (Herb.Type t : Herb.Type.values())
 		herbsByType.put(t, new HashSet<Herb>())
@@ -2146,8 +2020,6 @@ Use EnumMap to associate data with an enum
 		herbsByType.get(h.type).add(h);
 
 	System.out.println(herbsByType);
-
-
 ```
 
 
@@ -2164,8 +2036,7 @@ _Opcodes_ as a use case of enums extensibility.
 
 
 ```java
-
-	public interface Operation{
+public interface Operation{
 		double apply(double x, double y);
 	}
 	public enum BasicOperation implements Operation{
@@ -2181,7 +2052,6 @@ _Opcodes_ as a use case of enums extensibility.
 		@Override
 		public String toString(){ return symbol; }
 	}
-
 ```
 
 
@@ -2192,8 +2062,7 @@ _BasicOperation_ is not extensible, but the interface type _Operation_ is, and i
 
 
 ```java
-
-	public enum ExtendedOperation implements Operation{
+public enum ExtendedOperation implements Operation{
 		EXP("^"){
 			public double apply(double x, double y) {return Math.pow(x,y)}
 		}
@@ -2208,7 +2077,6 @@ _BasicOperation_ is not extensible, but the interface type _Operation_ is, and i
 		@Override
 		public String toString(){ return symbol; }
 	}
-
 ```
 
 
@@ -2222,8 +2090,7 @@ Sample of the _@Test_ annotation
 
 
 ```java
-
-	//Marker annotation type declaration
+//Marker annotation type declaration
 	import java.lang.annotation.*;
 
 	//Indicates that the annotated method is a test method.
@@ -2232,7 +2099,6 @@ Sample of the _@Test_ annotation
 	@Target(ElementType.METHOD)
 	public @interface Test {
 	}
-
 ```
 
 
@@ -2276,8 +2142,7 @@ Sample of the _@Test_ annotation
 
 
 ```java
-
-	public class Sample{
+public class Sample{
 		@Test public static void m1(){}		// Test pass
 		public static void m2(){} 			// Not test applied
 		@Test public static void m3(){ 		// Test fail
@@ -2285,7 +2150,6 @@ Sample of the _@Test_ annotation
 		}
 		@Test public void m4(){}			// Invalid use. Non static method.
 	}
-
 ```
 
 
@@ -2293,8 +2157,7 @@ Sample of the _@Test_ annotation
 
 
 ```java
-
-	import java.lang.reflect.*
+import java.lang.reflect.*
 
 	public class RunTests{
 		public static void main(String[] args) throws Exception {
@@ -2318,7 +2181,6 @@ Sample of the _@Test_ annotation
 			System.out.printf("Passed: %d, Failed: %d%n", passed, tests - passed);
 		}
 	}
-
 ```
 
 
@@ -2329,8 +2191,7 @@ Use the _Override_ annotation on every method declaration that you believe to ov
 
 
 ```java
-
-	public class Bigram {
+public class Bigram {
 		private final class first;
 		private final class second;
 		public Bigram(char first, char second){
@@ -2342,7 +2203,6 @@ Use the _Override_ annotation on every method declaration that you believe to ov
 		}
 		...
 	}
-
 ```
 
 
@@ -2353,9 +2213,7 @@ The correct sign to override the super method is:
 
 
 ```java
-
-	public boolean equals(Object o){}
-
+public boolean equals(Object o){}
 ```
 
 
@@ -2399,8 +2257,7 @@ You must program defensively, with the assumption that clients of your class wil
 
 
 ```java
-
-	//Broken "immutable" time period
+//Broken "immutable" time period
 	public final class Period{
 		private final Date start;
 		private final Date end;
@@ -2426,7 +2283,6 @@ You must program defensively, with the assumption that clients of your class wil
 		}
 		...
 	}
-
 ```
 
 
@@ -2434,12 +2290,10 @@ Attack. Because the client keep a copy (pointer) of the parameter, it can always
 
 
 ```java
-
-	Date start = new Date();
+Date start = new Date();
 	Date end = new Date();
 	Period p = new Period(start, end);
 	end.setYear(78)// Modifies internal of p!
-
 ```
 
 
@@ -2447,14 +2301,12 @@ Make a _defensive copy_ of each mutable parameter to the constructor.
 
 
 ```java
-
-	public Period(Date start, Date end) {
+public Period(Date start, Date end) {
 		this.start = new Date(start.getTime());
 		this.end = new Date(end.getTime());
 		if(start.compare(end) > 0)
 			throw new IllegalArgumentException(start + " after " + end );
 		}
-
 ```
 
 
@@ -2468,12 +2320,10 @@ Second Attack. Because the accessors returns the object used in the Period class
 
 
 ```java
-
-	Date start = new Date();
+Date start = new Date();
 	Date end = new Date();
 	Period p = new Period(start, end);
 	p.end.setYear(78)// Modifies internal of p!
-
 ```
 
 
@@ -2481,15 +2331,13 @@ Return _defensive copies_ of mutable internal fields.
 
 
 ```java
-
-	public Date start(){
+public Date start(){
 		return new Date(start.getTime());
 	}
 
 	public Date end(){
 		return new Date(end.getTime());
 	}
-
 ```
 
 
@@ -2512,8 +2360,7 @@ Selection among overloaded methods is static, while selection among overridden m
 
 
 ```java
-
-	// Broken! - What does this program print?
+// Broken! - What does this program print?
 	public class CollectionClassifier {
 		public static String classify(Set<?> s) {
 			return "Set";
@@ -2534,7 +2381,6 @@ Selection among overloaded methods is static, while selection among overridden m
 			System.out.println(classify(c)); // Returns "Unknown Collection" 3 times
 		}
 	}
-
 ```
 
 
@@ -2542,8 +2388,7 @@ Overriding works different. The “most specific” overriding method always get
 
 
 ```java
-
-	class Wine {
+class Wine {
 		String name() { return "wine"; }
 	}
 	class SparklingWine extends Wine {
@@ -2561,7 +2406,6 @@ Overriding works different. The “most specific” overriding method always get
 				System.out.println(wine.name()); // prints: wine, sparkling wine, and champagne
 		}
 	}
-
 ```
 
 
@@ -2569,12 +2413,10 @@ Overloading does not give the functionallity we want in the first sample. A poss
 
 
 ```java
-
-	public static String classify(Collection<?> c) {
+public static String classify(Collection<?> c) {
 		return 	c instanceof Set ? "Set" :
 				c instanceof List ? "List" : "Unknown Collection";
 	}
-
 ```
 
 
@@ -2592,11 +2434,9 @@ when passed the same parameters. To ensure this, have the more specific overload
 
 
 ```java
-
-	public boolean contentEquals(StringBuffer sb) {
+public boolean contentEquals(StringBuffer sb) {
 		return contentEquals((CharSequence) sb);
 	}
-
 ```
 
 
@@ -2607,8 +2447,7 @@ varargs methods are a convenient way to define methods that require a variable n
 
 
 ```java
-
-	// The right way to use varargs to pass one or more arguments
+// The right way to use varargs to pass one or more arguments
 	static int min(int firstArg, int... remainingArgs) {
 		int min = firstArg;
 		for (int arg : remainingArgs)
@@ -2616,7 +2455,6 @@ varargs methods are a convenient way to define methods that require a variable n
 				min = arg;
 		return min;
 	}
-
 ```
 
 
@@ -2630,8 +2468,7 @@ Return an immutable empty array instead of null.
 
 
 ```java
-
-	// The right way to return an array from a collection
+// The right way to return an array from a collection
 	private final List<Cheese> cheesesInStock = ...;
 
 	private static final Cheese[] EMPTY_CHEESE_ARRAY = new Cheese[0];
@@ -2642,7 +2479,6 @@ Return an immutable empty array instead of null.
 	public Cheese[] getCheeses() {
 		return cheesesInStock.toArray(EMPTY_CHEESE_ARRAY);
 	}
-
 ```
 
 
@@ -2650,15 +2486,13 @@ In Collections emptySet, emptyList and emptyMap methods do the same job.
 
 
 ```java
-
-	// The right way to return a copy of a collection
+// The right way to return a copy of a collection
 	public List<Cheese> getCheeseList() {
 		if (cheesesInStock.isEmpty())
 			return Collections.emptyList(); // Always returns same list
 		else
 			return new ArrayList<Cheese>(cheesesInStock);
 	}
-
 ```
 
 
@@ -2678,8 +2512,7 @@ The doc comment for a method should describe succinctly:
 - The _summary description of the element_, the first “sentence” of each doc comment.Should not contains a space after a period.
 
 ```java
-
-	/**
+/**
 	* Returns the element at the specified position in this list. *
 	* <p>This method is <i>not</i> guaranteed to run in constant
 	* time. In some implementations it may run in time proportional * to the element position.
@@ -2691,7 +2524,6 @@ The doc comment for a method should describe succinctly:
 	*		({@code index < 0 || index >= this.size()})
 	*/
 	E get(int index);
-
 ```
 
 
@@ -2728,8 +2560,7 @@ Keep methods small and focused.
 
 
 ```java
-
-	 // No longer the preferred idiom to iterate over a collection!
+// No longer the preferred idiom to iterate over a collection!
 		for (Iterator i = c.iterator(); i.hasNext(); ) {
 			doSomething((Element) i.next()); // (No generics before 1.5)
 	}
@@ -2737,7 +2568,6 @@ Keep methods small and focused.
 	   for (int i = 0; i < a.length; i++) {
 	       doSomething(a[i]);
 	}
-
 ```
 
 
@@ -2745,12 +2575,10 @@ Use for each loop:
 
 
 ```java
-
-	// The preferred idiom for iterating over collections and arrays
+// The preferred idiom for iterating over collections and arrays
 	   for (Element e : elements) {
 	       doSomething(e);
 	}
-
 ```
 
 
@@ -2758,8 +2586,7 @@ Error when iterating in nested loops
 
 
 ```java
-
-	 // Can you spot the bug?
+// Can you spot the bug?
 	   enum Suit { CLUB, DIAMOND, HEART, SPADE }
 	   enum Rank { ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT,
 	               NINE, TEN, JACK, QUEEN, KING }
@@ -2770,8 +2597,6 @@ Error when iterating in nested loops
 	   for (Iterator<Suit> i = suits.iterator(); i.hasNext(); )
 	       for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); )
 	           deck.add(new Card(i.next(), j.next())); // i.next() should be run only in the outer loop
-
-
 ```
 
 
@@ -2779,14 +2604,12 @@ A solution
 
 
 ```java
-
-	// Fixed, but ugly - you can do better!
+// Fixed, but ugly - you can do better!
 	for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
 	   Suit suit = i.next();
 	   for (Iterator<Rank> j = ranks.iterator(); j.hasNext(); )
 			deck.add(new Card(suit, j.next()));
 	}
-
 ```
 
 
@@ -2794,12 +2617,10 @@ For each loop fix this directly
 
 
 ```java
-
-	// Preferred idiom for nested iteration on collections and arrays
+// Preferred idiom for nested iteration on collections and arrays
 	   for (Suit suit : suits)
 	       for (Rank rank : ranks)
 	           deck.add(new Card(suit, rank));
-
 ```
 
 
@@ -2854,11 +2675,9 @@ Don't use **==** between boxed primitives.
 
 
 ```java
-
-	first = new Integer(1);
+first = new Integer(1);
 	second = new Integer(1);
 	first == second; //Uses unboxing  Don't have to be true.
-
 ```
 
 
@@ -2866,12 +2685,10 @@ Use Auto-unboxing to create new primitives
 
 
 ```java
-
-	...
+...
 	int f = first;  //Auto-unboxing
 	int s = second  //Auto-unboxing
 	f == s;// This is true
-
 ```
 
 
@@ -2879,10 +2696,8 @@ If a Boxed primitive is not initialize it will return null
 
 
 ```java
-
-	Integer  i;
+Integer  i;
 	i == 42 // NullPointerException
-
 ```
 
 
@@ -2919,15 +2734,12 @@ Using the string concatenation operator repeatedly to concatenate _n_ strings re
 
 
 ```java
-
-	// Inappropriate use of string concatenation - Performs horribly!
+// Inappropriate use of string concatenation - Performs horribly!
 	public String statement()
 		String result = "";
 		for (int i = 0; i < numItems(); i++)
 			result += lineForItem(i);
 		return result;
-
-
 ```
 
 
@@ -2935,14 +2747,12 @@ To achieve acceptable performance, use StringBuilder in place of String.
 
 
 ```java
-
-	public String statement(){
+public String statement(){
 		StringBuilder b = new StringBuilder(numItems() * LINE_WIDTH);
 		for (int i = 0; i < numItems(); i++)
 			b.append(lineForItem(i));
 		return b.toString();
 	}
-
 ```
 
 
@@ -2953,10 +2763,8 @@ If appropriate interface types exist, then parameters, return values, variables,
 
 
 ```java
-
-	// Good - uses interface as type
+// Good - uses interface as type
 	List<Subscriber> subscribers = new Vector<Subscriber>();
-
 ```
 
 
@@ -2964,10 +2772,8 @@ rather than this:
 
 
 ```java
-
-	// Bad - uses class as type!
+// Bad - uses class as type!
 	Vector<Subscriber> subscribers = new Vector<Subscriber>();
-
 ```
 
 
@@ -2975,9 +2781,7 @@ It makes the program much more flexible. We could change the implementation of t
 
 
 ```java
-
-	List<Subscriber> subscribers = new ArrayList<Subscriber>();
-
+List<Subscriber> subscribers = new ArrayList<Subscriber>();
 ```
 
 
@@ -3012,8 +2816,7 @@ Obtain many of the benefits of reflection incurring few of its costs by **creati
 
 
 ```java
-
-	// Reflective instantiation with interface access
+// Reflective instantiation with interface access
 	public static void main (String[] args){
 		// Translate the class name into a class object
 		Class<?> cl =  null;
@@ -3042,7 +2845,6 @@ Obtain many of the benefits of reflection incurring few of its costs by **creati
 		s.addAll(Arrays.asList(args).subList(1,args.length));
 		System.out.println(s);
 	}
-
 ```
 
 
@@ -3158,14 +2960,12 @@ Invocation with checked exception
 
 
 ```java
-
-	try {
+try {
 		obj.action(args);
 	} catch(TheCheckedException e) {
 		// Handle exceptional condition
 		...
 	}
-
 ```
 
 
@@ -3173,14 +2973,12 @@ Invocation with state-testing method and unchecked exception
 
 
 ```java
-
-	if (obj.actionPermitted(args)) {
+if (obj.actionPermitted(args)) {
 		obj.action(args);
 	} else {
 		// Handle exceptional condition
 		...
 	}
-
 ```
 
 
@@ -3236,15 +3034,13 @@ Higher layers should catch lower-level exceptions and, in their place, throw exc
 
 
 ```java
-
-	// Exception Translation
+// Exception Translation
 	try {
 		// Use lower-level abstraction to do our bidding
 		...
 	} catch(LowerLevelException e) {
 		throw new HigherLevelException(...);
 	}
-
 ```
 
 
@@ -3256,14 +3052,12 @@ When the lower-level exception is utile for the debugger, pass the lower-level t
 
 
 ```java
-
-	// Exception with chaining-aware constructor
+// Exception with chaining-aware constructor
 	class HigherLevelException extends Exception {
 		HigherLevelException(Throwable cause) {
 		super(cause);
 		}
 	}
-
 ```
 
 
@@ -3289,10 +3083,8 @@ One way to ensure that is to require this information in their constructors inst
 
 
 ```java
-
-	// Alternative IndexOutOfBoundsException.
+// Alternative IndexOutOfBoundsException.
 	public IndexOutOfBoundsException(int lowerBound, int upperBound, int index) {...}
-
 ```
 
 
@@ -3314,13 +3106,11 @@ Don't let catch blocks empty.
 
 
 ```java
-
-	// Empty catch block ignores exception - Highly suspect!
+// Empty catch block ignores exception - Highly suspect!
 	try {
 	...
 	} catch (SomeException e) {
 	}
-
 ```
 
 
@@ -3342,8 +3132,7 @@ Synchronization is required for reliable communication between threads as well a
 
 
 ```java
-
-	// Broken! - How long would you expect this program to run?
+// Broken! - How long would you expect this program to run?
 	public class StopThread {
 		private static boolean stopRequested;
 
@@ -3361,7 +3150,6 @@ Synchronization is required for reliable communication between threads as well a
 			stopRequested = true;
 		}
 	}
-
 ```
 
 
@@ -3369,12 +3157,9 @@ Because of _hoisting_ the while loop is translated to this:
 
 
 ```java
-
-	if (!done)
+if (!done)
 		while (true)
 			i++;
-
-
 ```
 
 
@@ -3382,8 +3167,7 @@ and therefore the loop never stops.
 
 
 ```java
-
-	// Properly synchronized cooperative thread termination
+// Properly synchronized cooperative thread termination
 	public class StopThread {
 		private static boolean stopRequested;
 
@@ -3408,7 +3192,6 @@ and therefore the loop never stops.
 		requestStop();
 		}
 	}
-
 ```
 
 
@@ -3419,8 +3202,7 @@ Other solution is using _volatile_ modifier, it performs no mutual exclusion, bu
 
 
 ```java
-
-	public class StopThread {
+public class StopThread {
 		private static volatile boolean stopRequested;
 
 		public static void main(String[] args) throws InterruptedException {
@@ -3437,7 +3219,6 @@ Other solution is using _volatile_ modifier, it performs no mutual exclusion, bu
 		stopRequested = true;
 		}
 	}
-
 ```
 
 
@@ -3445,13 +3226,11 @@ Be careful with _volatile_ when using non atomic functions like ++
 
 
 ```java
-
-	private static volatile int nextSerialNumber = 0;
+private static volatile int nextSerialNumber = 0;
 
 	public static int generateSerialNumber() {
 		return nextSerialNumber++;
 	}
-
 ```
 
 
@@ -3460,13 +3239,11 @@ AtomicLong can help us with the synchronization of long values
 
 
 ```java
-
-	private static final AtomicLong nextSerialNum = new AtomicLong();
+private static final AtomicLong nextSerialNum = new AtomicLong();
 
 	public static long generateSerialNumber() {
 		return nextSerialNum.getAndIncrement();
 	}
-
 ```
 
 
@@ -3491,8 +3268,7 @@ Move alien method invocations out of synchronized blocks. Taking a “snapshot�
 
 
 ```java
-
-	// Alien method moved outside of synchronized block - open calls
+// Alien method moved outside of synchronized block - open calls
 	private void notifyElementAdded(E element) {
 		List<SetObserver<E>> snapshot = null;
 		synchronized(observers) {
@@ -3501,7 +3277,6 @@ Move alien method invocations out of synchronized blocks. Taking a “snapshot�
 		for (SetObserver<E> observer : snapshot)
 			observer.added(this, element);
 	}
-
 ```
 
 
@@ -3524,9 +3299,7 @@ Creating a work queue:
 
 
 ```java
-
-	ExecutorService executor = Executors.newSingleThreadExecutor();
-
+ExecutorService executor = Executors.newSingleThreadExecutor();
 ```
 
 
@@ -3534,9 +3307,7 @@ Submit a runnable for execution:
 
 
 ```java
-
-	executor.execute(runnable);
-
+executor.execute(runnable);
 ```
 
 
@@ -3544,9 +3315,7 @@ Terminate gracefully the executor
 
 
 ```java
-
-	executor.shutdown();
-
+executor.shutdown();
 ```
 
 
@@ -3597,15 +3366,13 @@ items as they become available. ExecutorService implementations, including Threa
 
 
 ```java
-
-	// The standard idiom for using the wait method
+// The standard idiom for using the wait method
 	synchronized (obj) {
 		while (<condition does not hold>){
 			obj.wait(); // (Releases lock, and reacquires on wakeup)
 		}
 		... // Perform action appropriate to condition
 	}
-
 ```
 
 
@@ -3642,8 +3409,7 @@ Use private lock object idiom to prevent users to hold the lock for a long perio
 
 
 ```java
-
-	// Private lock object idiom - thwarts denial-of-service attack
+// Private lock object idiom - thwarts denial-of-service attack
 	private final Object lock = new Object();
 
 	public void foo() {
@@ -3651,7 +3417,6 @@ Use private lock object idiom to prevent users to hold the lock for a long perio
 			...
 		}
 	}
-
 ```
 
 
@@ -3668,11 +3433,8 @@ For multiple threads, lazy initialization is tricky.
 
 
 ```java
-
-	// Normal initialization of an instance field
+// Normal initialization of an instance field
 	private final FieldType field = computeFieldValue();
-
-
 ```
 
 
@@ -3680,15 +3442,13 @@ To break an initialization circularity: **synchronized accessor**
 
 
 ```java
-
-	// Lazy initialization of instance field - synchronized accessor
+// Lazy initialization of instance field - synchronized accessor
 	private FieldType field;
 	synchronized FieldType getField() {
 		if (field == null)
 			field = computeFieldValue();
 		return field;
 	}
-
 ```
 
 
@@ -3696,13 +3456,11 @@ For performance on a static field: **lazy initialization holder class idiom**, a
 
 
 ```java
-
-	// Lazy initialization holder class idiom for static fields
+// Lazy initialization holder class idiom for static fields
 	private static class FieldHolder {
 		static final FieldType field = computeFieldValue();
 	}
 	static FieldType getField() { return FieldHolder.field; }
-
 ```
 
 
@@ -3710,8 +3468,7 @@ For performance on an instance field: **double-check idiom**.
 
 
 ```java
-
-	// Double-check idiom for lazy initialization of instance fields
+// Double-check idiom for lazy initialization of instance fields
 	private volatile FieldType field;
 	FieldType getField() {
 		FieldType result = field;
@@ -3724,7 +3481,6 @@ For performance on an instance field: **double-check idiom**.
 		}
 	return result;
 	}
-
 ```
 
 
@@ -3732,8 +3488,7 @@ Instance field that can tolerate repeated initialization: **single-check idiom.*
 
 
 ```java
-
-	// Single-check idiom - can cause repeated initialization!
+// Single-check idiom - can cause repeated initialization!
 	private volatile FieldType field;
 	private FieldType getField() {
 		FieldType result = field;
@@ -3741,7 +3496,6 @@ Instance field that can tolerate repeated initialization: **single-check idiom.*
 			field = result = computeFieldValue();
 		return result;
 	}
-
 ```
 
 
@@ -3833,13 +3587,11 @@ Impose synchronization on object serialization that you would impose on any othe
 
 
 ```java
-
-	// writeObject for synchronized class with default serialized form
+// writeObject for synchronized class with default serialized form
 	private synchronized void writeObject(ObjectOutputStream s)
 		throws IOException {
 			s.defaultWriteObject();
 	}
-
 ```
 
 
@@ -3847,9 +3599,7 @@ Declare an explicit serial version UID in every serializable class you write.
 
 
 ```java
-
-	private static final long serialVersionUID = randomLongValue ;
-
+private static final long serialVersionUID = randomLongValue ;
 ```
 
 
@@ -3862,8 +3612,7 @@ _readObject_ method is a public constructor that takes a byte stream as its sole
 - make defensive copies of parameters where appropriate ([Item 39](https://www.notion.so/shvmsnju/Java-Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#39-make-defensive-copies-when-needed))
 
 ```java
-
-	// readObject method with defensive copying and validity checking
+// readObject method with defensive copying and validity checking
 	private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
 		s.defaultReadObject();
 
@@ -3875,7 +3624,6 @@ _readObject_ method is a public constructor that takes a byte stream as its sole
 		if (start.compareTo(end) > 0)
 			throw new InvalidObjectException(start +" after "+ end);
 	}
-
 ```
 
 
@@ -3927,9 +3675,7 @@ Both the enclosing class and its serialization proxy must be declared to impleme
 
 
 ```java
-
-
-		// Serialization proxy for Period class
+// Serialization proxy for Period class
 		private static class SerializationProxy implements Serializable {
 			private final Date start;
 			private final Date end;
@@ -3944,7 +3690,6 @@ Both the enclosing class and its serialization proxy must be declared to impleme
 
 
 	}
-
 ```
 
 
@@ -3953,12 +3698,10 @@ The serialization system will never generate a serialized instance of the enclos
 
 
 ```java
-
-	// writeReplace method for the serialization proxy pattern
+// writeReplace method for the serialization proxy pattern
 	private Object writeReplace() {
 		return new SerializationProxy(this);
 	}
-
 ```
 
 
@@ -3966,12 +3709,10 @@ If an attacker fabricates a serialized object in an attempt to violate the class
 
 
 ```java
-
-	// readObject method for the serialization proxy pattern
+// readObject method for the serialization proxy pattern
 	private void readObject(ObjectInputStream stream) throws InvalidObjectException {
 		throw new InvalidObjectException("Proxy required");
 	}
-
 ```
 
 
@@ -3979,12 +3720,10 @@ Add a _readResolve_ method on the _SerializationProxy_ class to return a logical
 
 
 ```java
-
-	// readResolve method for Period.SerializationProxy
+// readResolve method for Period.SerializationProxy
 	private Object readResolve() {
 		return new Period(start, end); // Uses public constructor
 	}
-
 ```
 
 

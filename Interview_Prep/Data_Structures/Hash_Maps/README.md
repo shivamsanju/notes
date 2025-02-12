@@ -42,7 +42,6 @@ graph TD
     A1 --> LinkedList1
     A2 --> LinkedList2
     A3 --> LinkedList3
-
 ```
 
 

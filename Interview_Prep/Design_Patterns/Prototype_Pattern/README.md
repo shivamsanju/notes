@@ -28,7 +28,6 @@ classDiagram
 
     Prototype <|-- ConcretePrototype1
     Prototype <|-- ConcretePrototype2
-
 ```
 
 

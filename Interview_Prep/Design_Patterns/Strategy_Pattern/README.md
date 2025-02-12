@@ -34,8 +34,6 @@ classDiagram
     Strategy <|.. ConcreteStrategyA
     Strategy <|.. ConcreteStrategyB
     Strategy <|.. ConcreteStrategyC
-
-
 ```
 
 
