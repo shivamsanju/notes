@@ -10,11 +10,11 @@
 ### Graph Representation
 
 1. **Adjacency Matrix**:
-	- A 2D matrix of size `V x V` (where V is the number of vertices).
-	- Matrix[i][j] represents if there is an edge from vertex `i` to vertex `j` (1 or true if connected, 0 or false otherwise).
+    - A 2D matrix of size `V x V` (where V is the number of vertices).
+    - Matrix[i][j] represents if there is an edge from vertex `i` to vertex `j` (1 or true if connected, 0 or false otherwise).
 2. **Adjacency List**:
-	- An array of lists. Each index represents a vertex, and each list contains all adjacent vertices.
-	- More space-efficient than an adjacency matrix for sparse graphs.
+    - An array of lists. Each index represents a vertex, and each list contains all adjacent vertices.
+    - More space-efficient than an adjacency matrix for sparse graphs.
 
 ```mermaid
 graph TD

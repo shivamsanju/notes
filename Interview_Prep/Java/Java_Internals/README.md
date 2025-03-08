@@ -68,19 +68,19 @@ graph LR
 - During high-processing tasks that fully utilize all CPU cores, we might observe a slight performance dip when JIT compilation occurs. However, subsequent runs of the same code will be faster, making this tradeoff beneficial overall.
 - To see which part of our code is getting JIT compiled we can use a flag `-XX:+Print Compilation` .
 
-	```mermaid
-	graph TD
-	    JVM[JVM] --> C1[Client Compiler C1]
-	    JVM --> C2[Server Compiler C2]
-	    
-	    C1 --> N1[Native Level 1]
-	    C1 --> N2[Native Level 2]
-	    C1 --> N3[Native Level 3]
-	    
-	    C2 --> N4[Native Level 4]
-	    
-	    N4 --> Cache[Code Cache]
-	```
+    ```mermaid
+    graph TD
+        JVM[JVM] --> C1[Client Compiler C1]
+        JVM --> C2[Server Compiler C2]
+        
+        C1 --> N1[Native Level 1]
+        C1 --> N2[Native Level 2]
+        C1 --> N3[Native Level 3]
+        
+        C2 --> N4[Native Level 4]
+        
+        N4 --> Cache[Code Cache]
+    ```
 
 - The JVM determines the appropriate level of compilation to apply during JIT for a specific block of code. This decision is based on two factors: how frequently the code runs and how complex or time-consuming it is to compile. This is called **code profiling**.
 - For very frequently used code, the step beyond native level 4 is storing that code block in the code cache. This cache offers faster access, further speeding up execution.

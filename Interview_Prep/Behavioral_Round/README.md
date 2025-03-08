@@ -21,30 +21,30 @@
 ## Questions
 
 1. Why do you want to work for X company?
-	- NetApp has been one of the top tech companies.
-	- It came to my college placement but was only allowing MTech students.
+    - NetApp has been one of the top tech companies.
+    - It came to my college placement but was only allowing MTech students.
 2. Why do you want to leave your current/last company?
-	- h
+    - h
 3. What are you looking for in your next role?
-	- Looking to work on the scalability aspect of softwares.
+    - Looking to work on the scalability aspect of softwares.
 4. Tell me about a time when you had a conflict with a co-worker.
-	- I try to avoid conflicts. Many a times there are discussions with product team which is not feasible but if we keep on discussing in that call with many members so i politely tell them that yeah maybe let’s sit on it and discuss in a separate call.
+    - I try to avoid conflicts. Many a times there are discussions with product team which is not feasible but if we keep on discussing in that call with many members so i politely tell them that yeah maybe let’s sit on it and discuss in a separate call.
 5. Tell me about a time in which you had a conflict and needed to influence somebody else.
-	- 
+    - 
 6. What project are you currently working on?
-	1. Finance application with sales pipeline
-	- Resource management
-	- Revenue / Billing management
+    1. Finance application with sales pipeline
+    - Resource management
+    - Revenue / Billing management
 7. What is the most challenging aspect of your current project?
-	- Handling large volume of data / maintaining responsiveness
+    - Handling large volume of data / maintaining responsiveness
 8. What was the most difficult bug that you fixed in the past 6 months?
-	- Conflict point + Infosec single session topic
+    - Conflict point + Infosec single session topic
 9. How do you tackle challenges? Name a difficult challenge you faced while working on a project, how you overcame it, and what you learned.
-	- Infosec single session topic, talp tree data structures, replaced fetching everytime with sockets
+    - Infosec single session topic, talp tree data structures, replaced fetching everytime with sockets
 10. What are you excited about?
-	- Engineering challenges
+    - Engineering challenges
 11. What frustrates you?
-	- repititive task / mundane
+    - repititive task / mundane
 12. Imagine it is your first day here at the company. What do you want to work on? What features would you improve on?
 13. What are the most interesting projects you have worked on and how might they be relevant to this company's environment?
 14. Tell me about a time you had a disagreement with your manager.

@@ -5,93 +5,93 @@
 
 - [1. TABLE OF CONTENTS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#1-table-of-contents)
 - [2. CREATING AND DESTROYING OBJECTS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#2-creating-and-destroying-objects)
-	- [1. Use STATIC FACTORY METHODS instead of constructors](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#1-use-static-factory-methods-instead-of-constructors)
-	- [2. Use BUILDERS when faced with many constructors](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#2-use-builders-when-faced-with-many-constructors)
-	- [3. Enforce the singleton property with a private constructor or an enum type](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
-	- [4. Enforce noninstantiability with a private constructor](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#4-enforce-noninstantiability-with-a-private-constructor)
-	- [5. Avoid creating objects](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#5-avoid-creating-objects)
-	- [6. Eliminate obsolete object references](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#6-eliminate-obsolete-object-references)
-	- [7. Avoid finalizers](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#7-avoid-finalizers)
+    - [1. Use STATIC FACTORY METHODS instead of constructors](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#1-use-static-factory-methods-instead-of-constructors)
+    - [2. Use BUILDERS when faced with many constructors](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#2-use-builders-when-faced-with-many-constructors)
+    - [3. Enforce the singleton property with a private constructor or an enum type](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
+    - [4. Enforce noninstantiability with a private constructor](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#4-enforce-noninstantiability-with-a-private-constructor)
+    - [5. Avoid creating objects](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#5-avoid-creating-objects)
+    - [6. Eliminate obsolete object references](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#6-eliminate-obsolete-object-references)
+    - [7. Avoid finalizers](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#7-avoid-finalizers)
 - [3. METHODS COMMON TO ALL OBJECTS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#3-methods-common-to-all-objects)
-	- [8. Obey the general contract when overriding ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#8-obey-the-general-contract-when-overriding-equals)[_equals_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#8-obey-the-general-contract-when-overriding-equals)
-	- [9. Always override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)[_hashCode_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)[ when you override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)[_equals_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)
-	- [10. Always override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#10-always-override-tostring)[_toString_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#10-always-override-tostring)
-	- [11. Override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-override-clone-judiciously)[_clone_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-override-clone-judiciously)[ judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-override-clone-judiciously)
-	- [12. Consider implementing ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#12-consider-implementing-comparable)[_Comparable_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#12-consider-implementing-comparable)
+    - [8. Obey the general contract when overriding ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#8-obey-the-general-contract-when-overriding-equals)[_equals_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#8-obey-the-general-contract-when-overriding-equals)
+    - [9. Always override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)[_hashCode_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)[ when you override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)[_equals_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-always-override-hashcode-when-you-override-equals)
+    - [10. Always override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#10-always-override-tostring)[_toString_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#10-always-override-tostring)
+    - [11. Override ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-override-clone-judiciously)[_clone_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-override-clone-judiciously)[ judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-override-clone-judiciously)
+    - [12. Consider implementing ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#12-consider-implementing-comparable)[_Comparable_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#12-consider-implementing-comparable)
 - [4. CLASSES AND INTERFACES](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#4-classes-and-interfaces)
-	- [13. Minimize the accessibility of classes and members](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#13-minimize-the-accessibility-of-classes-and-members)
-	- [14. In public classes, use accessor methods, not public fields](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#14-in-public-classes-use-accessor-methods-not-public-fields)
-	- [15. Minimize Mutability](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#15-minimize-mutability)
-	- [16. Favor composition over inheritance](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#16-favor-composition-over-inheritance)
-	- [17. Design and document for inheritance or else prohibit it.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#17-design-and-document-for-inheritance-or-else-prohibit-it)
-	- [18. Prefer interfaces to abstract classes](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#18-prefer-interfaces-to-abstract-classes)
-	- [19. Use interfaces only to define types](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#19-use-interfaces-only-to-define-types)
-	- [20. Prefer class hierarchies to tagged classes](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#20-prefer-class-hierarchies-to-tagged-classes)
-	- [21. Use function objects to represent strategies](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#21-use-function-objects-to-represent-strategies)
-	- [22. Favor static member classes over nonstatic](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#22-favor-static-member-classes-over-nonstatic)
+    - [13. Minimize the accessibility of classes and members](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#13-minimize-the-accessibility-of-classes-and-members)
+    - [14. In public classes, use accessor methods, not public fields](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#14-in-public-classes-use-accessor-methods-not-public-fields)
+    - [15. Minimize Mutability](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#15-minimize-mutability)
+    - [16. Favor composition over inheritance](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#16-favor-composition-over-inheritance)
+    - [17. Design and document for inheritance or else prohibit it.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#17-design-and-document-for-inheritance-or-else-prohibit-it)
+    - [18. Prefer interfaces to abstract classes](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#18-prefer-interfaces-to-abstract-classes)
+    - [19. Use interfaces only to define types](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#19-use-interfaces-only-to-define-types)
+    - [20. Prefer class hierarchies to tagged classes](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#20-prefer-class-hierarchies-to-tagged-classes)
+    - [21. Use function objects to represent strategies](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#21-use-function-objects-to-represent-strategies)
+    - [22. Favor static member classes over nonstatic](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#22-favor-static-member-classes-over-nonstatic)
 - [5. GENERICS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#5-generics)
-	- [23. Don't use raw types in new code](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#23-dont-use-raw-types-in-new-code)
-	- [24. Eliminate unchecked warnings](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#24-eliminate-unchecked-warnings)
-	- [25. Prefer lists to arrays](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#25-prefer-lists-to-arrays)
-	- [26. Favor generic types](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#26-favor-generic-types)
-	- [27. Favor generic Methods](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#27-favor-generic-methods)
-	- [28. Use bounded wildcards to increase API flexibility](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#28-use-bounded-wildcards-to-increase-api-flexibility)
-	- [29. Consider ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#29-consider-typesafe-heterogeneous-containers)[_typesafe heterogeneous containers_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#29-consider-typesafe-heterogeneous-containers)
+    - [23. Don't use raw types in new code](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#23-dont-use-raw-types-in-new-code)
+    - [24. Eliminate unchecked warnings](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#24-eliminate-unchecked-warnings)
+    - [25. Prefer lists to arrays](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#25-prefer-lists-to-arrays)
+    - [26. Favor generic types](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#26-favor-generic-types)
+    - [27. Favor generic Methods](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#27-favor-generic-methods)
+    - [28. Use bounded wildcards to increase API flexibility](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#28-use-bounded-wildcards-to-increase-api-flexibility)
+    - [29. Consider ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#29-consider-typesafe-heterogeneous-containers)[_typesafe heterogeneous containers_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#29-consider-typesafe-heterogeneous-containers)
 - [6. ENUMS AND ANNOTATIONS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#6-enums-and-annotations)
-	- [30. Use enums instead of ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#30-use-enums-instead-of-int-constants)[_int_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#30-use-enums-instead-of-int-constants)[ constants](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#30-use-enums-instead-of-int-constants)
-	- [31. Use instance fields instead of ordinals](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#31-use-instance-fields-instead-of-ordinals)
-	- [32. Use EnumSet instead of bit fields](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#32-use-enumset-instead-of-bit-fields)
-	- [33. Use EnumMap instead of ordinal indexing](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#33-use-enummap-instead-of-ordinal-indexing)
-	- [34. Emulate extensible enums with interfaces](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#34-emulate-extensible-enums-with-interfaces)
-	- [35. Prefer annotations to naming patterns](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#35-prefer-annotations-to-naming-patterns)
-	- [36. Consistently use the ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#36-consistently-use-the-override-annotation)[_Override_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#36-consistently-use-the-override-annotation)[ annotation](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#36-consistently-use-the-override-annotation)
-	- [37. Use marker interfaces to define types](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#37-use-marker-interfaces-to-define-types)
+    - [30. Use enums instead of ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#30-use-enums-instead-of-int-constants)[_int_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#30-use-enums-instead-of-int-constants)[ constants](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#30-use-enums-instead-of-int-constants)
+    - [31. Use instance fields instead of ordinals](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#31-use-instance-fields-instead-of-ordinals)
+    - [32. Use EnumSet instead of bit fields](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#32-use-enumset-instead-of-bit-fields)
+    - [33. Use EnumMap instead of ordinal indexing](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#33-use-enummap-instead-of-ordinal-indexing)
+    - [34. Emulate extensible enums with interfaces](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#34-emulate-extensible-enums-with-interfaces)
+    - [35. Prefer annotations to naming patterns](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#35-prefer-annotations-to-naming-patterns)
+    - [36. Consistently use the ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#36-consistently-use-the-override-annotation)[_Override_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#36-consistently-use-the-override-annotation)[ annotation](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#36-consistently-use-the-override-annotation)
+    - [37. Use marker interfaces to define types](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#37-use-marker-interfaces-to-define-types)
 - [7. METHODS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#7-methods)
-	- [38. Check parameters for validity](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#38-check-parameters-for-validity)
-	- [39. Make defensive copies when needed.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#39-make-defensive-copies-when-needed)
-	- [40. Design method signatures carefully](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#40-design-method-signatures-carefully)
-	- [41. Use overloading judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#41-use-overloading-judiciously)
-	- [42. Use varargs judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#42-use-varargs-judiciously)
-	- [43. Return empty arrays or collections, not nulls](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#43-return-empty-arrays-or-collections-not-nulls)
-	- [44. Write ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#44-write-doc-comments-for-all-exposed-api-elemnts)[_doc comments_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#44-write-doc-comments-for-all-exposed-api-elemnts)[ for all exposed API elements](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#44-write-doc-comments-for-all-exposed-api-elemnts)
+    - [38. Check parameters for validity](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#38-check-parameters-for-validity)
+    - [39. Make defensive copies when needed.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#39-make-defensive-copies-when-needed)
+    - [40. Design method signatures carefully](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#40-design-method-signatures-carefully)
+    - [41. Use overloading judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#41-use-overloading-judiciously)
+    - [42. Use varargs judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#42-use-varargs-judiciously)
+    - [43. Return empty arrays or collections, not nulls](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#43-return-empty-arrays-or-collections-not-nulls)
+    - [44. Write ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#44-write-doc-comments-for-all-exposed-api-elemnts)[_doc comments_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#44-write-doc-comments-for-all-exposed-api-elemnts)[ for all exposed API elements](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#44-write-doc-comments-for-all-exposed-api-elemnts)
 - [8. GENERAL PROGRAMMING](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#8-general-programming)
-	- [45. Minimize the scope of local variables.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#45-minimize-the-scope-of-local-variables)
-	- [46. Prefer for-each loops to traditional for loops.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#46-prefer-for-each-loops-to-traditional-for-loops)
-	- [47. Know and use libraries](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#47-know-and-use-libraries)
-	- [48. Avoid float and double if exact answer are required](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#48-avoid-float-and-double-if-exact-answer-are-required)
-	- [49. Prefer primitive types to boxed primitives](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#49-prefer-primitive-types-to-boxed-primitives)
-	- [50. Avoid Strings where other types are more appropriate](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#50-avoid-strings-where-other-types-are-more-appropriate)
-	- [51. Beware the performance of string concatenation](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#51-beware-the-performance-of-string-concatenation)
-	- [52. Refer to objects by their interface](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#52-refer-to-objects-by-their-interface)
-	- [53. Prefer interfaces to reflection](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#53-prefer-interfaces-to-reflection)
-	- [54. Use native methods judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#54-use-native-methods-judiciously)
-	- [55. Optimize judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#55-optimize-judiciously)
-	- [56. Adhere to generally accepted naming conventions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#56-adhere-to-generally-accepted-naming-conventions)
+    - [45. Minimize the scope of local variables.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#45-minimize-the-scope-of-local-variables)
+    - [46. Prefer for-each loops to traditional for loops.](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#46-prefer-for-each-loops-to-traditional-for-loops)
+    - [47. Know and use libraries](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#47-know-and-use-libraries)
+    - [48. Avoid float and double if exact answer are required](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#48-avoid-float-and-double-if-exact-answer-are-required)
+    - [49. Prefer primitive types to boxed primitives](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#49-prefer-primitive-types-to-boxed-primitives)
+    - [50. Avoid Strings where other types are more appropriate](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#50-avoid-strings-where-other-types-are-more-appropriate)
+    - [51. Beware the performance of string concatenation](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#51-beware-the-performance-of-string-concatenation)
+    - [52. Refer to objects by their interface](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#52-refer-to-objects-by-their-interface)
+    - [53. Prefer interfaces to reflection](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#53-prefer-interfaces-to-reflection)
+    - [54. Use native methods judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#54-use-native-methods-judiciously)
+    - [55. Optimize judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#55-optimize-judiciously)
+    - [56. Adhere to generally accepted naming conventions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#56-adhere-to-generally-accepted-naming-conventions)
 - [9. EXCEPTIONS](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#9-exceptions)
-	- [57. Use exceptions only for exceptional conditions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#57-use-exceptions-only-for-exceptional-conditions)
-	- [58. Use checked exceptions for recoverable conditions and runtime exceptions for programming errors](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#58-use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors)
-	- [59. Avoid unnecessary use of checked exceptions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#59-avoid-unnecessary-use-of-checked-exceptions)
-	- [60. Favor the use of standard exceptions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#60-favor-the-use-of-standard-exceptions)
-	- [61. Throw exceptions appropriate to the abstraction](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#61-throw-exceptions-appropriate-to-the-abstraction)
-	- [62. Document all exceptions thrown by each method](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#62-document-all-exceptions-thrown-by-each-method)
-	- [63. Include failure-capture information in detail messages](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#63-include-failure-capture-information-in-detail-messages)
-	- [64. Strive for failure atomicity](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#64-strive-for-failure-atomicity)
-	- [65. Don't ignore exceptions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#65-dont-ignore-exceptions)
+    - [57. Use exceptions only for exceptional conditions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#57-use-exceptions-only-for-exceptional-conditions)
+    - [58. Use checked exceptions for recoverable conditions and runtime exceptions for programming errors](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#58-use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors)
+    - [59. Avoid unnecessary use of checked exceptions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#59-avoid-unnecessary-use-of-checked-exceptions)
+    - [60. Favor the use of standard exceptions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#60-favor-the-use-of-standard-exceptions)
+    - [61. Throw exceptions appropriate to the abstraction](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#61-throw-exceptions-appropriate-to-the-abstraction)
+    - [62. Document all exceptions thrown by each method](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#62-document-all-exceptions-thrown-by-each-method)
+    - [63. Include failure-capture information in detail messages](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#63-include-failure-capture-information-in-detail-messages)
+    - [64. Strive for failure atomicity](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#64-strive-for-failure-atomicity)
+    - [65. Don't ignore exceptions](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#65-dont-ignore-exceptions)
 - [10. CONCURRENCY](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#10-concurrency)
-	- [66. Synchronize access to shared mutable data](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#66-synchronize-access-to-shared-mutable-data)
-	- [67. Avoid excessive synchronization](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#67-avoid-excessive-synchronization)
-	- [68. Prefer executors and tasks to threads](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#68-prefer-executors-and-tasks-to-threads)
-	- [69. Prefer concurrency utilities to ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)[_wait_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)[ and ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)[_notify_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)
-	- [70. Document thread safety](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#70-document-thread-safety)
-	- [71. Use lazy initialization judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#71-use-lazy-initialization-judiciously)
-	- [72. Don't depend on thread scheduler](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#72-dont-depend-on-thread-scheduler)
-	- [73. Avoid thread groups](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#73-avoid-thread-groups)
+    - [66. Synchronize access to shared mutable data](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#66-synchronize-access-to-shared-mutable-data)
+    - [67. Avoid excessive synchronization](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#67-avoid-excessive-synchronization)
+    - [68. Prefer executors and tasks to threads](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#68-prefer-executors-and-tasks-to-threads)
+    - [69. Prefer concurrency utilities to ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)[_wait_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)[ and ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)[_notify_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#69-prefer-concurrency-utilities-to-wait-and-notify)
+    - [70. Document thread safety](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#70-document-thread-safety)
+    - [71. Use lazy initialization judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#71-use-lazy-initialization-judiciously)
+    - [72. Don't depend on thread scheduler](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#72-dont-depend-on-thread-scheduler)
+    - [73. Avoid thread groups](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#73-avoid-thread-groups)
 - [11. SERIALIZATION](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#11-serialization)
-	- [74. Implement ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#74-implement-serializable-judiciously)[_Serializable_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#74-implement-serializable-judiciously)[ judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#74-implement-serializable-judiciously)
-	- [75. Consider using a custom serialized form](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#75-consider-using-a-custom-serialized-form)
-	- [76. Write ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#76-write-readobject-methods-defensively)[_readObject_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#76-write-readobject-methods-defensively)[ methods defensively](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#76-write-readobject-methods-defensively)
-	- [77. For instance control, prefer ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)[_enum_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)[ types to ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)[_readResolve_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)
-	- [78. Consider serialization proxies instead of serialized instances](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#78-consider-serialization-proxies-instead-of-serialized-instances)
+    - [74. Implement ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#74-implement-serializable-judiciously)[_Serializable_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#74-implement-serializable-judiciously)[ judiciously](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#74-implement-serializable-judiciously)
+    - [75. Consider using a custom serialized form](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#75-consider-using-a-custom-serialized-form)
+    - [76. Write ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#76-write-readobject-methods-defensively)[_readObject_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#76-write-readobject-methods-defensively)[ methods defensively](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#76-write-readobject-methods-defensively)
+    - [77. For instance control, prefer ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)[_enum_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)[ types to ](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)[_readResolve_](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#77-for-instance-control-prefer-enum-types-to-readresolve)
+    - [78. Consider serialization proxies instead of serialized instances](https://www.notion.so/shvmsnju/Best-Practices-6b981c27784b4ceb939d39fb2c50e0e5#78-consider-serialization-proxies-instead-of-serialized-instances)
 
 ---
 
@@ -603,13 +603,13 @@ _**The Recipe**_
 1. Store constant value i.e. 17 in an integer called _result_.
 2. For each field _f_ used in _equals_ do:
 - Compute _c_
-	- boolean: _(f ? 1 : 0)_
-	- byte, char, short or int: _(int) f_
-	- long: _(int) (f ^ (.f >>> 32))_
-	- float: _Float.floatToIntBits(f)_
-	- double: _Double.doubleToLongBits(f)_ and compute as a long
-	- object reference: if _equals_ of the reference use recutsivity, use recursivity for the _hashCode_
-	- array: each element as a separate field.
+    - boolean: _(f ? 1 : 0)_
+    - byte, char, short or int: _(int) f_
+    - long: _(int) (f ^ (.f >>> 32))_
+    - float: _Float.floatToIntBits(f)_
+    - double: _Double.doubleToLongBits(f)_ and compute as a long
+    - object reference: if _equals_ of the reference use recutsivity, use recursivity for the _hashCode_
+    - array: each element as a separate field.
 - Combine: _result = 31 \* result + c_
 1. Return _result_
 2. Ask yourself if equal instances have equal hash codes.
@@ -797,11 +797,11 @@ For arrays start with the most significant field and work your way down.
 - A well designed module hides all of its implementation details.
 - Separates its API from its implementation.
 - Decouples modules that comprise a system, allowing them to be isolated while:
-	- developed (can be developed in parallel)
-	- tested (individual modules may prove succesful even if the system does not)
-	- optimized and modified (no harm to other modules)
-	- understood (dont need other modules to be understood)
-	- used
+    - developed (can be developed in parallel)
+    - tested (individual modules may prove succesful even if the system does not)
+    - optimized and modified (no harm to other modules)
+    - understood (dont need other modules to be understood)
+    - used
 
 **Make each class or member as inaccesible as possible**
 
@@ -2879,8 +2879,8 @@ If a good program is not fast enough, its architecture will allow it to be optim
 - We should forget about small efficiencies, say about 97% of the time: premature
 optimization is the root of all evil.
 - We follow two rules in the matter of optimization:
-	- Rule 1. Don't do it.
-	- Rule 2 (for experts only). Don't do it yet — that is, not until you have a perfectly clear and unoptimized solution.
+    - Rule 1. Don't do it.
+    - Rule 2 (for experts only). Don't do it yet — that is, not until you have a perfectly clear and unoptimized solution.
 
 If you finally do it **measure performance before and after each attempted optimization**, and focus firstly in the choice of algorithms rather than in low level optimizations.
 
@@ -2939,8 +2939,8 @@ Throwables:
 
 - checked exceptions: for conditions from which the caller can reasonably be expected to recover
 - unchecked exceptions: shouldn't, be caught. recovery is impossible and continued execution would do more harm than good.
-	- runtime exceptions: to indicate programming errors. The great majority indicate precondition violations.
-	- errors : are reserved for use by the JVM. (as a convention)
+    - runtime exceptions: to indicate programming errors. The great majority indicate precondition violations.
+    - errors : are reserved for use by the JVM. (as a convention)
 
 Unchecked throwables that you implement should **always** subclass _RuntimeException_.
 
@@ -3657,9 +3657,9 @@ Accessibility: _readResolve_ method on:
 
 - final class: private.
 - nonfinal class:
-	- private: will not apply to any subclasses.
-	- package-private: it will apply only to subclasses in the same package.
-	- protected or public: it will apply to all subclasses that do not override it.
+    - private: will not apply to any subclasses.
+    - package-private: it will apply only to subclasses in the same package.
+    - protected or public: it will apply to all subclasses that do not override it.
 
 ## 78. Consider serialization proxies instead of serialized instances
 

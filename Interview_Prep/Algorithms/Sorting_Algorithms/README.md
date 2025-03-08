@@ -148,11 +148,11 @@ graph TD;
 ### Steps to Calculate Time Complexity: 
 
 1. **Divide**:
-	- The algorithm recursively divides the array into two halves until each subarray contains a single element. This division step occurs `log₂(n)` times, where `n` is the number of elements in the array. The division process creates a binary tree of depth `log₂(n)`.
+    - The algorithm recursively divides the array into two halves until each subarray contains a single element. This division step occurs `log₂(n)` times, where `n` is the number of elements in the array. The division process creates a binary tree of depth `log₂(n)`.
 2. **Conquer** (Merge):
-	- After dividing the array, Merge Sort combines (merges) the subarrays back together in sorted order. Each merge operation takes linear time, O(n), because it needs to go through all the elements to combine the sorted halves. Since each level of the tree involves merging all elements in the array once, the merge operation at each level is O(n).
+    - After dividing the array, Merge Sort combines (merges) the subarrays back together in sorted order. Each merge operation takes linear time, O(n), because it needs to go through all the elements to combine the sorted halves. Since each level of the tree involves merging all elements in the array once, the merge operation at each level is O(n).
 3. **Combine**:
-	- The combine step involves merging sorted subarrays at each level of the recursion tree. Since the merging happens at every level of the recursion, and there are `log₂(n)` levels, each involving O(n) work, the overall time complexity can be calculated as: `n * log₂(n)`
+    - The combine step involves merging sorted subarrays at each level of the recursion tree. Since the merging happens at every level of the recursion, and there are `log₂(n)` levels, each involving O(n) work, the overall time complexity can be calculated as: `n * log₂(n)`
 
 ---
 
